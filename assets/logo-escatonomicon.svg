@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-label="Logo de Editorial Escatonomicón">
+  <defs>
+    <radialGradient id="gold" cx="50%" cy="48%" r="58%">
+      <stop offset="0" stop-color="#fff4dc"/>
+      <stop offset=".48" stop-color="#d2a55d"/>
+      <stop offset="1" stop-color="#731b20"/>
+    </radialGradient>
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="5" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  <rect width="512" height="512" fill="none"/>
+  <circle cx="256" cy="256" r="204" fill="none" stroke="url(#gold)" stroke-width="8" filter="url(#glow)"/>
+  <circle cx="256" cy="256" r="154" fill="none" stroke="#d2a55d" stroke-width="4" opacity=".78"/>
+  <circle cx="256" cy="256" r="82" fill="none" stroke="#f3e8d5" stroke-width="3" opacity=".68"/>
+  <path d="M256 36v440M36 256h440" stroke="#f3e8d5" stroke-width="5" opacity=".68"/>
+  <path d="M111 111l290 290M401 111L111 401" stroke="#d2a55d" stroke-width="4" opacity=".62"/>
+  <path d="M256 72c64 82 64 286 0 368-64-82-64-286 0-368Z" fill="none" stroke="#f3e8d5" stroke-width="6"/>
+  <path d="M72 256c82-64 286-64 368 0-82 64-286 64-368 0Z" fill="none" stroke="#f3e8d5" stroke-width="6"/>
+  <path d="M256 130l58 126-58 126-58-126 58-126Z" fill="none" stroke="#731b20" stroke-width="13" stroke-linejoin="round"/>
+  <path d="M256 164l38 92-38 92-38-92 38-92Z" fill="none" stroke="#d2a55d" stroke-width="5" stroke-linejoin="round"/>
+  <circle cx="256" cy="256" r="18" fill="#d2a55d"/>
+  <circle cx="256" cy="36" r="9" fill="#f3e8d5"/>
+  <circle cx="256" cy="476" r="9" fill="#f3e8d5"/>
+  <circle cx="36" cy="256" r="9" fill="#f3e8d5"/>
+  <circle cx="476" cy="256" r="9" fill="#f3e8d5"/>
+  <path d="M174 92c-42 18-72 45-92 82M338 92c42 18 72 45 92 82M174 420c-42-18-72-45-92-82M338 420c42-18 72-45 92-82" fill="none" stroke="#d2a55d" stroke-width="4" opacity=".68"/>
+</svg>

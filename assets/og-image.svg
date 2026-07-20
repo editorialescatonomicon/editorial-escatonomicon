@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <rect width="1200" height="630" fill="#070604"/>
+  <circle cx="945" cy="130" r="300" fill="#731b20" opacity=".35"/>
+  <circle cx="120" cy="560" r="260" fill="#d2a55d" opacity=".14"/>
+  <g transform="translate(820 150) scale(.55)" opacity=".9">
+    <circle cx="256" cy="256" r="204" fill="none" stroke="#d2a55d" stroke-width="8"/>
+    <circle cx="256" cy="256" r="154" fill="none" stroke="#d2a55d" stroke-width="4" opacity=".78"/>
+    <path d="M256 36v440M36 256h440M111 111l290 290M401 111L111 401" stroke="#f3e8d5" stroke-width="5" opacity=".62"/>
+    <path d="M256 72c64 82 64 286 0 368-64-82-64-286 0-368Z" fill="none" stroke="#f3e8d5" stroke-width="6"/>
+    <path d="M72 256c82-64 286-64 368 0-82 64-286 64-368 0Z" fill="none" stroke="#f3e8d5" stroke-width="6"/>
+    <circle cx="256" cy="256" r="18" fill="#d2a55d"/>
+  </g>
+  <text x="88" y="230" fill="#f3e8d5" font-family="Georgia, serif" font-size="88" font-weight="700">Editorial</text>
+  <text x="88" y="340" fill="#d2a55d" font-family="Georgia, serif" font-size="112" font-weight="700">Escatonomicón</text>
+  <text x="92" y="420" fill="#b6a48d" font-family="Georgia, serif" font-size="34">Libros · juegos de rol · literatura extraña</text>
+</svg>
