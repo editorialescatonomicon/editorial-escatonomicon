@@ -1,0 +1,26 @@
+PARCHE PARA AÑADIR LA SECCIÓN VIDEOJUEGOS + LA ESCUCHA
+
+Sube estos archivos a la raíz de tu repositorio de GitHub, manteniendo las carpetas:
+
+index.html
+styles.css
+assets/la-escucha-captura.jpg
+games/la-escucha/index.html
+games/la-escucha.zip
+
+Pasos:
+1. Descomprime este ZIP.
+2. En GitHub, entra en tu repositorio.
+3. Pulsa Add file > Upload files.
+4. Arrastra los archivos y carpetas de este paquete.
+5. Acepta sustituir index.html y styles.css.
+6. Pulsa Commit changes.
+
+Resultado:
+- Aparece una nueva sección llamada Videojuegos.
+- El primer juego es La escucha.
+- La tarjeta incluye captura, sinopsis, botón Jugar en navegador y botón Descargar ZIP.
+
+Nota:
+La carpeta games/la-escucha/ contiene una página provisional.
+Cuando tengas el juego HTML real, sustituye el contenido de esa carpeta conservando el archivo principal como index.html.

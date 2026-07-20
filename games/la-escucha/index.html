@@ -1,0 +1,171 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#11100e">
+  <title>La escucha — Gabinete del psicoanalista</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="transitionOverlay" class="transition-overlay hidden"><div class="transition-text">Preparando la siguiente sesión…</div></div>
+
+  <div id="app">
+    <header class="topbar">
+      <div>
+        <span class="eyebrow">EDITORIAL ESCATONOMICÓN PRESENTA</span>
+        <h1>LA ESCUCHA</h1>
+      </div>
+      <div class="top-actions">
+        <span id="globalProgress">Paciente 1 de 10</span>
+        <button id="theoryButton" class="ghost">Teoría</button>
+        <button id="historyButton" class="ghost">Historial</button>
+        <button id="musicToggle" class="ghost">Música: OFF</button>
+        <button id="voiceToggle" class="ghost">Voz: ON</button>
+        <button id="repeatVoice" class="ghost">Repetir voz</button>
+        <button id="resetAllButton" class="ghost">Reiniciar</button>
+      </div>
+    </header>
+
+    <main class="game-grid">
+      <aside class="patient-column panel">
+        <h2>Pacientes</h2>
+        <div id="patientList" class="patient-list"></div>
+        <div class="case-score">
+          <span>Progreso clínico</span>
+          <strong id="totalScore">0 / 1000</strong>
+        </div>
+      </aside>
+
+      <section class="consulting-room panel">
+        <div class="room-background" aria-hidden="true"></div>
+        <div class="room-vignette" aria-hidden="true"></div>
+        <div id="patientStage" class="patient-stage">
+          <img id="patientSprite" alt="">
+        </div>
+        <div class="case-heading">
+          <span id="caseNumber">CASO 01</span>
+          <h2 id="patientName"></h2>
+          <p id="caseSubtitle"></p>
+        </div>
+        <div class="voice-chip">🗣️ <span id="voiceName">voz preparada</span></div>
+        <div class="speech-box">
+          <div class="speaker" id="speakerName"></div>
+          <p id="speechText"></p>
+          <span id="typingCursor" class="typing-cursor">▋</span>
+        </div>
+        <div id="interventions" class="interventions"></div>
+      </section>
+
+      <aside class="analysis-column panel">
+        <section>
+          <h2>Formalización</h2>
+          <p class="microcopy">Selecciona exactamente cinco significantes decisivos y ordénalos. La pertinencia, el orden y ciertos encadenamientos privilegiados modifican la puntuación.</p>
+          <div class="chain-head">
+            <span class="label">Banco de significantes</span>
+            <span id="chainCounter" class="counter">0 / 5</span>
+          </div>
+          <div id="signifierBank" class="chip-bank"></div>
+          <div class="chain-wrap">
+            <span class="label">Cadena construida</span>
+            <div id="chain" class="chain"></div>
+            <div id="chainMessage" class="chain-message"></div>
+          </div>
+        </section>
+
+        <section class="choice-section">
+          <h3>Formalización avanzada</h3>
+          <p class="microcopy">Estas dos selecciones refinan la lectura del caso y quedan registradas en el historial de sesiones.</p>
+          <div class="advanced-wrap">
+            <div>
+              <span class="label">Significante pivote / S1</span>
+              <div id="pivotChoices" class="choice-grid five"></div>
+            </div>
+            <div>
+              <span class="label">Registro dominante</span>
+              <div id="registerChoices" class="choice-grid three"></div>
+            </div>
+          </div>
+        </section>
+
+        <section class="choice-section">
+          <h3>Operación respecto del Nombre-del-Padre</h3>
+          <div id="mechanismChoices" class="choice-grid"></div>
+        </section>
+
+        <section class="choice-section">
+          <h3>Estructura clínica</h3>
+          <div id="structureChoices" class="choice-grid three"></div>
+        </section>
+
+        <section class="choice-section">
+          <h3>Fórmula didáctica</h3>
+          <div id="formulaChoices" class="formula-grid"></div>
+        </section>
+
+        <section class="choice-section">
+          <h3>Sinthome propuesto</h3>
+          <div id="sinthomeChoices" class="sinthome-list"></div>
+        </section>
+
+        <label class="notes-label" for="notes">Notas del analista</label>
+        <textarea id="notes" placeholder="Anota equívocos, repeticiones, cortes y preguntas..."></textarea>
+
+        <button id="diagnoseButton" class="primary">Formalizar y cerrar sesión</button>
+        <button id="nextButton" class="secondary hidden">Siguiente paciente</button>
+        <div id="result" class="result hidden"></div>
+      </aside>
+    </main>
+
+    <footer>
+      <span>Ficción pedagógica inspirada en conceptos lacanianos. No es una herramienta de diagnóstico clínico.</span>
+      <span>Música y voces dependen del navegador.</span>
+    </footer>
+  </div>
+
+  <div id="theoryModal" class="modal hidden" role="dialog" aria-modal="true" aria-labelledby="theoryTitle">
+    <div class="modal-card">
+      <button id="closeTheory" class="modal-close" aria-label="Cerrar">×</button>
+      <h2 id="theoryTitle">Cuaderno de teoría ampliado</h2>
+      
+      <div class="theory-grid expanded">
+        <article><h3>Significante y significado</h3><p>En Saussure el signo articula significante y significado. Lacan desplaza el acento: el significante no es un simple envase de sentido, sino aquello que produce efectos sobre el sujeto. Un significante representa al sujeto para otro significante.</p></article>
+        <article><h3>Lacan y la renovación del psicoanálisis</h3><p>Lacan relee a Freud desde la lingüística, la lógica y la filosofía. Subraya la división subjetiva, la primacía del lenguaje, la falta y la dimensión del deseo, alejándose de una psicología adaptativa del yo.</p></article>
+        <article><h3>el otro y el Otro</h3><p>El otro con minúscula suele designar al semejante, al rival, al interlocutor en el espejo social. El Otro con mayúscula designa el lugar del lenguaje, la ley y el tesoro de los significantes.</p></article>
+        <article><h3>El goce</h3><p>El goce no es simple placer. Nombra una satisfacción paradójica, a veces dolorosa o excesiva, que rebasa el principio del placer. El síntoma puede alojar goce; por eso no se disuelve solo con buena voluntad.</p></article>
+        <article><h3>La grieta</h3><p>El sujeto no coincide consigo mismo. Está agujereado por la falta y desajustado respecto de lo que dice. Esa grieta aparece en lapsus, repeticiones, impasses y retornos del decir.</p></article>
+        <article><h3>El objeto a</h3><p>El objeto a es el resto que causa el deseo, no un objeto que lo colma. Puede figurarse como mirada, voz, pecho o un vacío alrededor del cual gira el deseo.</p></article>
+        <article><h3>La forclusión</h3><p>En la enseñanza lacaniana, la forclusión designa la exclusión radical de un significante primordial del campo simbólico. El juego la simplifica para pensar ciertos retornos en lo real.</p></article>
+        <article><h3>Los tres registros</h3><p>Lo Imaginario concierne a la imagen, el cuerpo y la rivalidad. Lo Simbólico remite al lenguaje y la ley. Lo Real nombra lo imposible de simbolizar plenamente, lo que irrumpe o no encaja.</p></article>
+        <article><h3>Qué no es el psicoanálisis lacaniano</h3><p>No es coaching, ni autoayuda, ni manual de consejos, ni clasificación cerrada de personas. Tampoco pretende reducir un sujeto a un rótulo definitivo.</p></article>
+        <article><h3>Nombre-del-Padre</h3><p>No se reduce al padre biológico. Designa una función simbólica que introduce ley, separación y mediación respecto del deseo del Otro. Aquí se convierte en una mecánica pedagógica simplificada.</p></article>
+        <article><h3>Síntoma y sinthome</h3><p>El síntoma puede leerse como formación de compromiso y como modo de goce. El sinthome nombra una invención singular que anuda y sostiene al sujeto de un modo propio.</p></article>
+        <article><h3>Límites del juego</h3><p>Este prototipo enseña nociones mediante reglas simplificadas. No reemplaza una formación clínica, una cura ni una herramienta diagnóstica real.</p></article>
+      </div>
+
+    </div>
+  </div>
+
+  <div id="historyModal" class="modal hidden" role="dialog" aria-modal="true" aria-labelledby="historyTitle">
+    <div class="modal-card">
+      <button id="closeHistory" class="modal-close" aria-label="Cerrar">×</button>
+      <h2 id="historyTitle">Historial de sesiones</h2>
+      <p class="microcopy">Cada diagnóstico queda archivado con su cadena, hipótesis, cierre del paciente y formalización avanzada.</p>
+      <div id="historyList" class="history-list"></div>
+    </div>
+  </div>
+
+  <div id="introModal" class="modal" role="dialog" aria-modal="true" aria-labelledby="introTitle">
+    <div class="modal-card intro-card">
+      <span class="eyebrow">AVENTURA CLÍNICA FICTICIA</span>
+      <h2 id="introTitle">Ocupa el lugar del analista</h2>
+      <p>Escucha diez discursos, formaliza sus cadenas significantes y decide cómo se sitúa cada caso ante el Nombre-del-Padre.</p>
+      <p>Esta versión incorpora música ambiental, transiciones, historial de sesiones y una formalización más precisa con S1 y registro dominante.</p>
+      <button id="startButton" class="primary">Comenzar la primera sesión</button>
+    </div>
+  </div>
+
+  <script>window.CASES = [{"id": "martin", "name": "Martín R.", "subtitle": "El reloj detenido", "structure": "neurosis", "mechanism": "represion", "formula": "neurosis", "sinthome": "restauracion", "keySignifiers": ["deuda", "reloj", "padre", "culpa", "ritual"], "voice": {"gender": "male", "rate": 0.95, "pitch": 0.88, "volume": 1.0}, "opening": "No sé por qué he venido. Lo tengo todo bajo control. Solo necesito comprobar algunas cosas antes de dormir.", "interventions": [{"label": "Pedir que asocie sobre «control»", "text": "Control significa que nada se escape. Mi padre decía que un hombre decente paga sus deudas a tiempo. Yo reviso cinco veces las puertas y el reloj, aunque sé que están bien.", "signifiers": ["control", "padre", "deuda", "reloj", "cinco"]}, {"label": "Preguntar qué ocurriría si no comprobara", "text": "Algo terrible, pero no sé qué. Tal vez mi mujer enfermase por mi culpa. Sé que no tiene sentido; precisamente por eso debo repetir el ritual.", "signifiers": ["culpa", "mujer", "terrible", "ritual", "sentido"]}, {"label": "Señalar la frase «pagar a tiempo»", "text": "Cuando él murió, su reloj quedó parado a las seis y diez. Desde entonces llego demasiado pronto a todo. No quiero deberle ni un minuto a nadie.", "signifiers": ["muerte", "seis y diez", "minuto", "deber", "nadie"]}], "sinthomes": [["restauracion", "Restauración de relojes: convertir la repetición en una práctica limitada y transmisible."], ["aislamiento", "Aislamiento doméstico absoluto."], ["vigilancia", "Aumentar las comprobaciones mediante cámaras."]], "feedback": "La ley paterna opera, pero el deseo y la culpa retornan bajo forma de compulsión. La deuda y el reloj condensan la exigencia superyoica.", "weightedSignifiers": {"padre": 5, "deuda": 4, "reloj": 3, "culpa": 2, "ritual": 1}, "idealChain": ["padre", "deuda", "culpa", "reloj", "ritual"], "privilegedTriples": [["padre", "deuda", "culpa"], ["deuda", "culpa", "reloj"]], "endings": {"high": "Sí… así suena mejor. No es solo manía: es una deuda que mi cuerpo intenta pagar con relojes y repeticiones. Me voy menos asfixiado.", "medium": "Ha rozado algo importante, pero todavía lo deja demasiado limpio. No es solo comprobar: hay una culpa vieja que sigue girando.", "low": "No, eso no alcanza. Si fuera tan simple, dejaría de revisar esta noche. El reloj seguiría ahí, exigiendo lo mismo."}, "idealPivot": "padre", "dominantRegister": "Simbólico", "stage": {"scale": 1, "x": 0, "y": 0}}, {"id": "laura", "name": "Laura M.", "subtitle": "La pregunta de la mirada", "structure": "neurosis", "mechanism": "represion", "formula": "neurosis", "sinthome": "voz", "keySignifiers": ["mirada", "madre", "insuficiente", "cuerpo", "pregunta"], "voice": {"gender": "female", "rate": 1.0, "pitch": 1.05, "volume": 1.0}, "opening": "Cuando alguien me desea, dejo de desearlo. Cuando se aleja, no puedo pensar en otra cosa.", "interventions": [{"label": "Preguntar qué quiere de ella el otro", "text": "Eso es lo insoportable: nunca sé qué quieren de mí. Mi madre me miraba y yo sabía que todavía no era suficiente.", "signifiers": ["querer", "mirada", "madre", "insuficiente", "otro"]}, {"label": "Invitarla a hablar del síntoma corporal", "text": "Antes de una cita pierdo la voz. El médico dice que no hay lesión. Es como si mi cuerpo formulara una pregunta que yo no sé pronunciar.", "signifiers": ["voz", "cita", "cuerpo", "pregunta", "lesión"]}, {"label": "Cortar después de «todavía»", "text": "Sí: todavía. Siempre falta algo. Si llegara a ser exactamente lo que esperan, quizá desaparecería.", "signifiers": ["todavía", "falta", "espera", "desaparecer", "exactamente"]}], "sinthomes": [["voz", "Teatro de voz: alojar la pregunta del deseo en una práctica propia, no en la demanda ajena."], ["silencio", "Evitar toda conversación íntima."], ["pareja", "Buscar una pareja que decida por ella."]], "feedback": "El Nombre-del-Padre funciona y la falta queda simbolizada, pero el deseo se sostiene como pregunta dirigida al Otro. La afonía habla donde el sujeto vacila.", "weightedSignifiers": {"madre": 5, "mirada": 4, "insuficiente": 3, "pregunta": 2, "cuerpo": 1}, "idealChain": ["madre", "mirada", "insuficiente", "pregunta", "cuerpo"], "privilegedTriples": [["madre", "mirada", "insuficiente"], ["mirada", "insuficiente", "pregunta"]], "endings": {"high": "Cuando lo ha dicho, he reconocido esa mirada que me deja siempre en falta. Quizá por eso la voz se me corta. Me siento algo más situada.", "medium": "Ha entendido la duda, pero no del todo el lugar de la mirada. Sigo sin saber qué quiere el Otro de mí.", "low": "No me reconozco mucho en eso. Suena como un resumen externo, no como la pregunta que me deja sin voz."}, "idealPivot": "mirada", "dominantRegister": "Imaginario", "stage": {"scale": 1, "x": 0, "y": 0}}, {"id": "eusebio", "name": "Eusebio G.", "subtitle": "La frecuencia personal", "structure": "psicosis", "mechanism": "forclusion", "formula": "psicosis", "sinthome": "frecuencias", "keySignifiers": ["radio", "mensaje", "juez", "nombre", "persecución"], "voice": {"gender": "male", "rate": 0.9, "pitch": 0.82, "volume": 1.0}, "opening": "La radio no habla para todo el mundo. A veces introduce mi apellido entre las noticias.", "interventions": [{"label": "Pedir un ejemplo literal", "text": "El locutor dice «sube la presión» y eso significa que el juez del edificio ha vuelto a abrir mi expediente.", "signifiers": ["radio", "presión", "juez", "expediente", "edificio"]}, {"label": "Preguntar cuándo comenzó", "text": "Después de que cambiaron mi nombre en una factura. Desde entonces las palabras se despegan y vuelven dirigidas contra mí.", "signifiers": ["nombre", "factura", "palabras", "contra mí", "cambio"]}, {"label": "No discutir la certeza; preguntar qué le calma", "text": "Anotar la hora exacta. Si registro cada frecuencia, el mensaje queda encerrado en el cuaderno y deja de perseguirme un rato.", "signifiers": ["hora", "frecuencia", "cuaderno", "mensaje", "persecución"]}], "sinthomes": [["frecuencias", "Cuaderno de frecuencias: escritura fechada que localiza la irrupción y reduce su invasión."], ["debate", "Demostrarle mediante discusión que la radio se equivoca."], ["exposicion", "Escuchar emisiones durante todo el día para habituarse."]], "feedback": "La palabra retorna en lo real como mensaje personalmente dirigido. El cuaderno funciona como suplencia local: fecha, limita y exterioriza la invasión significante.", "weightedSignifiers": {"radio": 5, "mensaje": 4, "nombre": 3, "persecución": 2, "juez": 1}, "idealChain": ["nombre", "radio", "mensaje", "juez", "persecución"], "privilegedTriples": [["nombre", "radio", "mensaje"], ["radio", "mensaje", "juez"]], "endings": {"high": "No me ha discutido la certeza, y eso ayuda. Si el mensaje puede quedar escrito y fechado, quizá no invada todo el día.", "medium": "Algo ha captado, aunque sigue sonando demasiado general. No son ideas vagas: los mensajes me apuntan a mí.", "low": "No. Si reduce esto a nervios o metáforas, vuelve a dejarme solo frente a la radio. El problema sigue intacto."}, "idealPivot": "mensaje", "dominantRegister": "Real", "stage": {"scale": 1, "x": 0, "y": 0}}, {"id": "nora", "name": "Nora V.", "subtitle": "Los nombres se desprenden", "structure": "psicosis", "mechanism": "forclusion", "formula": "psicosis", "sinthome": "tejido", "keySignifiers": ["nombres", "bordes", "espejo", "hilo", "desanudamiento"], "voice": {"gender": "female", "rate": 0.92, "pitch": 1.1, "volume": 0.95}, "opening": "Hay días en que mi cara sigue ahí, pero mi nombre no consigue pegarse a ella.", "interventions": [{"label": "Preguntar cómo reconoce los bordes", "text": "Me dibujo una línea en la muñeca. Así sé dónde termino. Los espejos, en cambio, abren demasiado espacio.", "signifiers": ["bordes", "línea", "muñeca", "espejo", "espacio"]}, {"label": "Pedirle que hable de los nombres", "text": "Los nombres se desprenden como etiquetas mojadas. Si alguien repite el mío muchas veces, siento que habla de otra persona.", "signifiers": ["nombres", "etiqueta", "mojada", "otra persona", "repetición"]}, {"label": "Preguntar por la labor que conserva", "text": "Tejo. Cada punto sujeta al siguiente. Si termino una bufanda, el día queda unido y no se desanuda.", "signifiers": ["tejer", "punto", "hilo", "día", "desanudamiento"]}], "sinthomes": [["tejido", "Tejido y etiquetado: una operación material que produce bordes, continuidad y nombre."], ["espejos", "Multiplicar los espejos para acostumbrarse a su imagen."], ["anonimato", "Dejar de usar cualquier nombre propio."]], "feedback": "La consistencia imaginaria y nominal se vuelve frágil. El tejido no interpreta: anuda materialmente puntos, tiempo y borde, operando como suplencia.", "weightedSignifiers": {"nombres": 5, "bordes": 4, "espejo": 3, "hilo": 2, "desanudamiento": 1}, "idealChain": ["nombres", "espejo", "bordes", "hilo", "desanudamiento"], "privilegedTriples": [["nombres", "espejo", "bordes"], ["espejo", "bordes", "hilo"]], "endings": {"high": "Eso sí se acerca. Cuando los nombres se despegan, necesito algo que me vuelva a coser al día. El hilo sirve precisamente para eso.", "medium": "Ha visto la fragilidad, pero no el desanudamiento entero. A veces aún siento que mi cara y mi nombre no se encuentran.", "low": "No lo diría así. Lo suyo deja fuera la parte en que los bordes se pierden y todo se vuelve demasiado abierto."}, "idealPivot": "nombres", "dominantRegister": "Imaginario", "stage": {"scale": 1, "x": 0, "y": 0}}, {"id": "adriana", "name": "Adriana S.", "subtitle": "La escena de la ley", "structure": "perversion", "mechanism": "desmentida", "formula": "perversion", "sinthome": "direccion", "keySignifiers": ["ley", "escena", "testigo", "falta", "instrumento"], "voice": {"gender": "female", "rate": 1.0, "pitch": 0.95, "volume": 1.0}, "opening": "No rompo las reglas por capricho. Las llevo hasta el final para que todos vean de qué están hechas.", "interventions": [{"label": "Preguntar quién debe mirar", "text": "Siempre hace falta un testigo. Sin su incomodidad, la escena no demuestra nada. Yo solo revelo la hipocresía de la ley.", "signifiers": ["testigo", "incomodidad", "escena", "hipocresía", "ley"]}, {"label": "Preguntar qué lugar ocupa ella", "text": "Soy el instrumento. Alguien tiene que ejecutar lo que los demás desean y niegan desear.", "signifiers": ["instrumento", "ejecutar", "deseo", "negar", "demás"]}, {"label": "Señalar que conoce el límite", "text": "Claro que hay un límite. Precisamente por eso puedo rozarlo. Sé que existe la falta; actúo como si pudiera administrarla.", "signifiers": ["límite", "falta", "saber", "como si", "administrar"]}], "sinthomes": [["direccion", "Dirección escénica con reglas explícitas: separar creación, consentimiento y transgresión."], ["escalada", "Buscar situaciones cada vez más extremas."], ["secreto", "Conservar las escenas fuera de toda palabra compartida."]], "feedback": "La castración es sabida y simultáneamente desmentida. El sujeto se ofrece como instrumento de una ley obscena y organiza al otro como testigo de la escena.", "weightedSignifiers": {"ley": 5, "instrumento": 4, "testigo": 3, "escena": 2, "falta": 1}, "idealChain": ["ley", "falta", "testigo", "escena", "instrumento"], "privilegedTriples": [["ley", "falta", "testigo"], ["falta", "testigo", "escena"]], "endings": {"high": "Exacto: no ignoro la ley, la llevo a escena. Si la separo del puro impulso, la escena deja de devorarme por completo.", "medium": "Ha percibido la escena, pero todavía no ve el lugar del testigo ni por qué el límite me interesa tanto.", "low": "No. Si lo lee como simple rebeldía, pierde lo esencial. No se trata de romper reglas por romperlas."}, "idealPivot": "ley", "dominantRegister": "Simbólico", "stage": {"scale": 1, "x": 0, "y": 0}}, {"id": "elvira", "name": "Elvira C.", "subtitle": "El umbral", "structure": "neurosis", "mechanism": "represion", "formula": "neurosis", "sinthome": "mapas", "keySignifiers": ["puerta", "perro", "padre", "umbral", "miedo"], "voice": {"gender": "female", "rate": 0.87, "pitch": 0.9, "volume": 1.0}, "opening": "Puedo viajar en tren, pero no cruzar la puerta del patio si el perro del vecino está suelto.", "interventions": [{"label": "Preguntar por el primer perro", "text": "Mi padre tenía uno. Decía que protegía la casa. Cuando él gritaba, el perro se tumbaba delante de la puerta.", "signifiers": ["padre", "perro", "proteger", "grito", "puerta"]}, {"label": "Preguntar qué separa la puerta", "text": "Dentro sé quién soy. Fuera podría ocurrir cualquier cosa. El umbral parece contener todo el miedo.", "signifiers": ["dentro", "fuera", "umbral", "miedo", "cualquier cosa"]}, {"label": "Señalar la función del animal", "text": "El perro vigila por mi padre. Es absurdo, ya lo sé, pero mientras está allí no tengo que preguntarme qué había detrás de sus gritos.", "signifiers": ["vigilar", "padre", "absurdo", "detrás", "pregunta"]}], "sinthomes": [["mapas", "Cartografía de recorridos: dibujar y ensayar umbrales sin borrar la función simbólica del miedo."], ["encierro", "Organizar la vida para no salir de casa."], ["mascota", "Adoptar varios perros guardianes."]], "feedback": "El objeto fóbico localiza la angustia y hace de bisagra. El perro y la puerta ordenan una pregunta reprimida sobre la amenaza paterna.", "weightedSignifiers": {"padre": 5, "puerta": 4, "perro": 3, "umbral": 2, "miedo": 1}, "idealChain": ["padre", "perro", "puerta", "umbral", "miedo"], "privilegedTriples": [["padre", "perro", "puerta"], ["perro", "puerta", "umbral"]], "endings": {"high": "Sí, el perro guarda el umbral de algo más antiguo. Cuando lo ha ligado a mi padre, la puerta ha dejado de ser solo una puerta.", "medium": "Se acerca, pero no del todo. El miedo no está solo en el animal, sino en lo que custodia ese paso.", "low": "No me convence. Si fuera únicamente miedo al perro, bastaría con evitarlo; y sin embargo el umbral sigue ahí."}, "idealPivot": "puerta", "dominantRegister": "Imaginario", "stage": {"scale": 1, "x": 0, "y": 0}}, {"id": "diego", "name": "Diego T.", "subtitle": "El semáforo azul", "structure": "psicosis", "mechanism": "forclusion", "formula": "psicosis", "sinthome": "archivo", "keySignifiers": ["semáforo", "señal", "vecinos", "cámara", "certeza"], "voice": {"gender": "male", "rate": 1.02, "pitch": 0.8, "volume": 1.0}, "opening": "Anoche el semáforo se puso azul. No verde: azul. Era una advertencia para mí.", "interventions": [{"label": "Preguntar qué anunciaba la señal", "text": "Que los vecinos ya habían votado. Desde sus ventanas coordinan cuándo debo salir y cuándo debo quedarme quieto.", "signifiers": ["semáforo", "azul", "vecinos", "ventanas", "señal"]}, {"label": "Preguntar por el grado de certeza", "text": "No es una sospecha. Lo sé con todo el cuerpo. Cuando usted duda, la señal se vuelve todavía más nítida.", "signifiers": ["certeza", "cuerpo", "duda", "nítida", "saber"]}, {"label": "Preguntar qué hace con su cámara", "text": "Fotografío cada luz y escribo la fecha. En la imagen ya no me ordena nada: queda como un objeto quieto.", "signifiers": ["cámara", "fecha", "imagen", "orden", "objeto"]}], "sinthomes": [["archivo", "Archivo fotográfico fechado: transformar la señal invasiva en una serie material limitada."], ["confrontacion", "Confrontar públicamente a todos los vecinos."], ["vigilancia", "Instalar cámaras en todas las ventanas."]], "feedback": "La señal adquiere certeza y significación personal sin mediación. La fotografía fechada puede reducir el carácter imperativo al convertirlo en objeto de una serie.", "weightedSignifiers": {"señal": 5, "certeza": 4, "semáforo": 3, "vecinos": 2, "cámara": 1}, "idealChain": ["señal", "semáforo", "vecinos", "certeza", "cámara"], "privilegedTriples": [["señal", "semáforo", "vecinos"], ["semáforo", "vecinos", "certeza"]], "endings": {"high": "Así resulta menos invasivo. Si la señal queda archivada, fotografiada, ya no me ordena tanto. Eso sí me sirve.", "medium": "Ha captado la señal, pero no la certeza con la que irrumpe. Cuando sucede, no parece una interpretación posible: parece un hecho.", "low": "No. Convertirlo en una simple sospecha borra lo que realmente ocurre. La señal no se siente dudosa cuando aparece."}, "idealPivot": "señal", "dominantRegister": "Real", "stage": {"scale": 1, "x": 0, "y": 0}}, {"id": "sergio", "name": "Sergio G.", "subtitle": "La prueba imposible", "structure": "perversion", "mechanism": "desmentida", "formula": "perversion", "sinthome": "performance", "keySignifiers": ["mirada", "prueba", "secreto", "vergüenza", "escena"], "voice": {"gender": "male", "rate": 0.98, "pitch": 0.9, "volume": 1.0}, "opening": "La gente afirma tener principios hasta que les doy la oportunidad de traicionarlos.", "interventions": [{"label": "Preguntar qué obtiene de la prueba", "text": "Una verdad. Preparo una escena, dejo una salida y observo. Cuando ceden, su vergüenza demuestra que yo tenía razón.", "signifiers": ["prueba", "escena", "salida", "vergüenza", "verdad"]}, {"label": "Preguntar por el secreto", "text": "El secreto es indispensable. Si saben que los miro, actuarán para mí. Quiero capturar lo que son cuando creen que no hay mirada.", "signifiers": ["secreto", "mirada", "capturar", "creer", "ser"]}, {"label": "Señalar que ella construye la falta", "text": "Sí, la preparo. No niego que exista una regla; demuestro que cualquiera disfruta quebrándola si otro organiza el momento.", "signifiers": ["regla", "quebrar", "disfrute", "organizar", "otro"]}], "sinthomes": [["performance", "Performance pactada: conservar la escena y la mirada dentro de un marco explícito y consentido."], ["espionaje", "Perfeccionar las pruebas secretas."], ["humillacion", "Publicar los errores de quienes participan."]], "feedback": "La escena fabrica al otro como sujeto dividido y al paciente como objeto que causa o revela su división. La desmentida permite saber de la ley y actuar como garante de su reverso.", "weightedSignifiers": {"prueba": 5, "escena": 4, "mirada": 3, "secreto": 2, "vergüenza": 1}, "idealChain": ["prueba", "mirada", "escena", "secreto", "vergüenza"], "privilegedTriples": [["prueba", "mirada", "escena"], ["mirada", "escena", "secreto"]], "endings": {"high": "Sí: necesito poner a prueba la mirada del otro y forzar la escena. Oírlo así me incomoda, pero también me precisa.", "medium": "Se acerca, aunque no del todo. La prueba no vale sin la escena ni sin el secreto de fondo.", "low": "No me dice gran cosa. Si reduce todo a exhibicionismo o cinismo, se pierde la lógica de la prueba."}, "idealPivot": "prueba", "dominantRegister": "Imaginario", "stage": {"scale": 1, "x": 0, "y": 0}}, {"id": "tomas", "name": "Tomás B.", "subtitle": "El guardián del castigo", "structure": "perversion", "mechanism": "desmentida", "formula": "perversion", "sinthome": "talla", "keySignifiers": ["castigo", "regla", "víctima", "sacrificio", "goce"], "voice": {"gender": "male", "rate": 0.93, "pitch": 0.78, "volume": 1.0}, "opening": "Alguien debe hacer cumplir la regla. Si nadie acepta ensuciarse las manos, la comunidad se pudre.", "interventions": [{"label": "Preguntar quién le otorgó ese puesto", "text": "Nadie. Justamente por eso es puro. No busco beneficio; cargo con lo que los demás no soportan.", "signifiers": ["nadie", "puesto", "puro", "carga", "demás"]}, {"label": "Preguntar por la víctima", "text": "La víctima necesita saber que su sufrimiento sirve para restaurar el orden. Yo le doy ese significado.", "signifiers": ["víctima", "sufrimiento", "orden", "significado", "dar"]}, {"label": "Señalar el disfrute en la renuncia", "text": "No disfruto. Me sacrifico. Aunque admito que, cuando todos callan, siento que por fin ocupo el lugar necesario.", "signifiers": ["goce", "sacrificio", "silencio", "lugar", "necesario"]}], "sinthomes": [["talla", "Talla de madera ritualizada: producir marcas y límites sin convertir a otra persona en soporte del castigo."], ["autoridad", "Obtener un cargo con mayor poder disciplinario."], ["aislamiento", "Retirarse sin elaborar la posición que ocupa."]], "feedback": "La renuncia declarada encubre un goce ligado a ser instrumento del orden. La regla se conserva y se desmiente a la vez mediante una escena de sacrificio.", "weightedSignifiers": {"regla": 5, "goce": 4, "víctima": 3, "sacrificio": 2, "castigo": 1}, "idealChain": ["regla", "víctima", "sacrificio", "castigo", "goce"], "privilegedTriples": [["regla", "víctima", "sacrificio"], ["víctima", "sacrificio", "castigo"]], "endings": {"high": "Eso toca el nervio del asunto: me ofrezco como ejecutor del orden y ahí mismo se cuela algo de goce. No es agradable reconocerlo.", "medium": "Ha intuido mi lugar, pero todavía lo moraliza demasiado. No busco solo castigar: sostengo una escena entera.", "low": "No, así no. Si habla de autoridad sin el sacrificio y la víctima, deja fuera lo más decisivo."}, "idealPivot": "regla", "dominantRegister": "Simbólico", "stage": {"scale": 1, "x": 0, "y": 0}}, {"id": "nicolas", "name": "Nicolás B.", "subtitle": "La respuesta perfecta", "structure": "neurosis", "mechanism": "represion", "formula": "neurosis", "sinthome": "margenes", "keySignifiers": ["examen", "demora", "madre", "pensamiento", "fracaso"], "voice": {"gender": "male", "rate": 1.03, "pitch": 1.08, "volume": 1.0}, "opening": "Llevo seis años preparando una oposición. Sé todos los temas, pero nunca me presento.", "interventions": [{"label": "Preguntar qué falta para estar preparado", "text": "Una última lectura. Siempre encuentro una nota que podría mejorar. Presentarme convertiría el pensamiento en una respuesta limitada.", "signifiers": ["examen", "última", "lectura", "pensamiento", "limitada"]}, {"label": "Preguntar quién leería su respuesta", "text": "El tribunal, claro. Pero oigo la voz de mi madre: «Podrías haberlo hecho mejor». No soportaría entregarle algo incompleto.", "signifiers": ["tribunal", "madre", "voz", "mejor", "incompleto"]}, {"label": "Señalar que la demora ya responde", "text": "Entonces mi fracaso consiste en no fracasar nunca del todo. Mientras no vaya, conservo la respuesta perfecta.", "signifiers": ["demora", "fracaso", "nunca", "perfecta", "conservar"]}], "sinthomes": [["margenes", "Traducción con márgenes: publicar piezas breves donde la pérdida y el límite formen parte del trabajo."], ["estudio", "Aumentar indefinidamente las horas de estudio."], ["renuncia", "Abandonar cualquier examen o entrega."]], "feedback": "La inhibición preserva el ideal y evita la castración implicada en entregar una respuesta finita. El pensamiento posterga el acto y mantiene la deuda con la voz materna.", "weightedSignifiers": {"madre": 5, "examen": 4, "demora": 3, "fracaso": 2, "pensamiento": 1}, "idealChain": ["madre", "examen", "demora", "pensamiento", "fracaso"], "privilegedTriples": [["madre", "examen", "demora"], ["examen", "demora", "pensamiento"]], "endings": {"high": "Sí… eso explica bien por qué nunca entrego nada. Conservar la respuesta perfecta me evita la pérdida, pero me paraliza. Ha sido una lectura muy precisa.", "medium": "Ha visto mi demora, aunque no del todo su función. No estudio solo por estudiar: pospongo el acto para no quedar expuesto.", "low": "No me reconoce demasiado. Si fuera una simple falta de esfuerzo, ya me habría presentado al examen hace años."}, "idealPivot": "examen", "dominantRegister": "Simbólico", "stage": {"scale": 0.88, "x": 6, "y": 22}}];</script>
+  <script src="game.js"></script>
+</body>
+</html>

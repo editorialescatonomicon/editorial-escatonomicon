@@ -1,0 +1,72 @@
+LA ESCUCHA — PROTOTIPO JUGABLE ACTUALIZADO
+===========================================
+
+NOVEDADES DE ESTA VERSIÓN
+- Fondo fijo del gabinete rediseñado y más coherente.
+- Integración visual mejorada del paciente con el escenario.
+- Reexportación de sprites con contornos más limpios.
+- Límite estricto de cinco significantes por cadena.
+- Síntesis de voz realista usando las voces del navegador.
+- Perfil de voz personalizado para cada paciente.
+- Teoría ampliada con más conceptos lacanianos.
+
+IMPORTANTE SOBRE LA VOZ
+Las voces dependen del navegador y del sistema operativo del usuario.
+El juego intenta elegir una voz en español y personalizarla con ritmo y tono
+distintos para cada paciente.
+
+EJECUCIÓN
+1. Descomprime la carpeta.
+2. Abre index.html en Chrome, Edge o Safari moderno.
+3. Pulsa “Comenzar la primera sesión”.
+4. Si el navegador bloquea el sonido al principio, usa el botón “Repetir voz”.
+
+AVISO
+Ficción pedagógica basada en simplificaciones de conceptos lacanianos.
+No sustituye formación clínica, análisis personal ni atención profesional.
+
+
+VERSIÓN 3
+- Corregida la correspondencia entre nombre y género del paciente Sergio G.
+
+
+VERSIÓN 4
+- Se ha introducido una puntuación diferencial para los significantes.
+- Cada caso tiene ahora cinco significantes clave ponderados.
+- La suma de esos cinco significantes da 15/15 en la parte significante.
+- Si aciertas estructura, operación, fórmula y sinthome, puedes alcanzar 100/100.
+
+
+VERSIÓN 5
+- La puntuación significante ahora se divide en pertinencia, orden y encadenamientos privilegiados.
+- Cada paciente dice una frase final distinta en función de su caso y de la puntuación obtenida.
+- Laura vuelve a tener apariencia femenina.
+- Nicolás tiene ahora una apariencia propia y distinta de Martín.
+- Reexportados todos los sprites para reducir desplazamientos al hablar.
+- Refinado el recorte para disminuir los filos blancos.
+
+
+VERSIÓN 6
+- Añadida música ambiental del gabinete con control ON/OFF.
+- Añadidas transiciones visuales entre pacientes y sesiones.
+- Añadido historial de sesiones con cadena, hipótesis, cierre y formalización avanzada.
+- Formalización avanzada nueva: significante pivote / S1 y registro dominante.
+- Ajustado el guardado local para conservar las nuevas opciones.
+
+
+CORRECCIÓN DE ARRANQUE
+- Corregido el bloqueo del botón «Comenzar» cuando el navegador impide usar localStorage.
+- El juego funciona ahora aunque se abra como archivo local o en una previsualización con almacenamiento restringido.
+- El guardado automático se mantiene cuando el navegador lo permite.
+
+
+CORRECCIÓN ADICIONAL DEL BOTÓN COMENZAR
+- Añadida la referencia que faltaba a la ventana de introducción.
+- El botón «Comenzar la primera sesión» ya puede cerrar la portada e iniciar la consulta.
+- Verificado junto con la corrección de almacenamiento local restringido.
+
+
+AJUSTE DE INTEGRACIÓN Y MÚSICA
+- El último paciente se ha reextraído con un recorte más agresivo tipo chroma para integrarlo mejor con el gabinete.
+- Se ha ajustado su escala y posición en escena.
+- La música ambiental ha sido recompuesta con más capas, tempo lento y color locrio más inquietante.
